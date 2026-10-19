@@ -1,0 +1,8 @@
+# 19.3 (bionic/tricia) 宿主侧下载源——仅供 03 的 USE_TARGET_SOURCES=1 下载 deb 用。
+# live 里的 apt 源是 profile 的 official-package-repositories.list（04 复制），与本文件无关。
+# 密钥不在此写 Signed-By：03 会暂存镜像自带 keyring（ubuntu + linuxmint）作 Dir::Etc::trustedparts，宿主无关。
+# 全部走阿里云（原厂 packages.linuxmint.com 实测 2.7s/9KB/s，太慢）。
+deb https://mirrors.aliyun.com/ubuntu bionic main restricted universe multiverse
+deb https://mirrors.aliyun.com/ubuntu bionic-updates main restricted universe multiverse
+deb https://mirrors.aliyun.com/ubuntu bionic-security main restricted universe multiverse
+deb https://mirrors.aliyun.com/linuxmint-packages tricia main upstream import backport

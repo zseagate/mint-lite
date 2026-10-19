@@ -1,0 +1,9 @@
+# 构建产物与工作目录（全部本地生成，不进仓库）
+work/
+tmp-debs/
+tmp-apt/
+tmp-unpack/
+*.iso
+*.squashfs
+# OpenCode 会话记录（本地过程文档，不发布）
+session-*.md

@@ -1,0 +1,18 @@
+# Linux Mint 19.3 (Tricia) 软件源——换成国内阿里云镜像。
+# 原因：原厂 archive.ubuntu.com / packages.linuxmint.com 在国内极慢（实测 4.4s/54KB/s、
+# 2.7s/9KB/s），安装器 apt-setup-verify 会跑一次 apt-get update（约 166 个索引文件），
+# 于是“正在下载第 N 个文件，共 166 个”长时间不动。阿里云实测 0.3s/780KB/s。
+# live 与安装后的系统都用这份（target 继承 live 的 /etc/apt/sources.list.d/）。
+# 注意：archive.canonical.com 的 partner 仓库国内不可达（curl 直接超时），
+# 且阿里云不镜像 partner（404），故整行去掉（lite 用不到 Skype 等）。
+# 该文件由 scripts/04-configure.sh 第 [6/7] 步复制进 work/root，改后重跑 04。
+# 不要手改 work/root 里的副本；下面 #id:linuxmint_main 标记是 mint 的 Software Sources
+# 工具认 Mint 主仓库用的，保留。
+
+deb https://mirrors.aliyun.com/linuxmint-packages tricia main upstream import backport #id:linuxmint_main
+
+deb https://mirrors.aliyun.com/ubuntu bionic main restricted universe multiverse
+deb https://mirrors.aliyun.com/ubuntu bionic-updates main restricted universe multiverse
+deb https://mirrors.aliyun.com/ubuntu bionic-backports main restricted universe multiverse
+
+deb https://mirrors.aliyun.com/ubuntu bionic-security main restricted universe multiverse

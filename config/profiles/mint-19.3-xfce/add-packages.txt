@@ -1,0 +1,29 @@
+# 19.3 新增包（USE_TARGET_SOURCES=1：apt 以镜像 status 解析闭包，--no-install-recommends，本清单即全集）
+# 播放器（19.3 Xfce 镜像未带 vlc/mpv）
+vlc
+mpv
+# fcitx4 输入法框架 + 前端 + 配置（bionic 无 fcitx5；镜像有 gtk2/gtk3 应用 + Qt5 库）
+fcitx
+fcitx-ui-classic
+fcitx-frontend-gtk3
+fcitx-frontend-gtk2
+fcitx-frontend-qt5
+fcitx-config-gtk
+# 中文输入：谷歌拼音 + 五笔 + 五笔拼音（云拼音模块对齐 22.3）
+fcitx-googlepinyin
+fcitx-table-wubi
+fcitx-table-wbpy
+fcitx-module-cloudpinyin
+# 中文语言包 / 浏览器翻译
+language-pack-zh-hans
+language-pack-gnome-zh-hans
+firefox-locale-zh-hans
+# 中文语言支持（预装，安装时不必联网下载）——即 check-language-support -l zh_CN 的“缺失集”
+# 里的字体/拼音：fonts-noto-cjk-extra + fonts-arphic-{uming,ukai} + fcitx-pinyin + fcitx-sunpinyin。
+# 该集合另有 fcitx-frontend-qt4 / fcitx-ui-qimpanel 两项，会拖进 Qt4(15M)+Qt5 QML 全套，
+# lite 不该要——不装，改由 profile 的 preseed-extra.seed 关掉安装器的 install-language-support。
+fonts-noto-cjk-extra
+fonts-arphic-uming
+fonts-arphic-ukai
+fcitx-pinyin
+fcitx-sunpinyin

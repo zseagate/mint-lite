@@ -1,0 +1,12 @@
+# 追加到 ISO 的 /preseed/linuxmint.seed 的预置片段（由 scripts/07-build-iso.sh 幂等追加，
+# 因为该文件在 work/iso 树里、只有 07 会打包它；改后重跑 07）。
+#
+# 关闭 pkgsel 的“安装新语言支持包”：ubiquity 的 select_language_packs() 默认
+# install_current=True，会把 check-language-support 的缺失集也装到目标系统——其中
+# fcitx-frontend-qt4 + fcitx-ui-qimpanel 会拖进 Qt4 与 Qt5 QML 全家桶。
+# 中文字体/拼音已在 profile 的 add-packages.txt 里预装，所以这里关掉新装即可：
+# ubiquity 只会保留已装的，不再下载/安装那两个。
+#
+# 机制：casper 的 casper-set-selections 对未注册的问题会 db_register 一个 dummy
+# 再 db_set，所以即便 pkgsel/install-language-support 在 live 库里没有模板也能生效。
+d-i pkgsel/install-language-support boolean false

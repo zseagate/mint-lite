@@ -1,0 +1,6 @@
+# fcitx4 profile（格式：samwhelp 真样例 + 镜像内 UniqueName 地面真相）
+# 英文键盘首位（默认英文，终端可直接打命令）；谷歌拼音/五笔/五笔拼音保留可用（对齐 22.3 lite）
+[Profile]
+WidePunc=False
+IMName=fcitx-keyboard-us
+EnabledIMList=fcitx-keyboard-us:True,googlepinyin:True,wubi:True,wbpy:True

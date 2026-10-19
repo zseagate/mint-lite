@@ -1,0 +1,24 @@
+[Groups/0]
+# Group Name
+Name=Default
+Default Layout=us
+DefaultIM=keyboard-us
+
+[Groups/0/Items/0]
+Name=keyboard-us
+Layout=
+
+[Groups/0/Items/1]
+Name=pinyin
+Layout=
+
+[Groups/0/Items/2]
+Name=wubi98
+Layout=
+
+[Groups/0/Items/3]
+Name=wbpy
+Layout=
+
+[GroupOrder]
+0=Default

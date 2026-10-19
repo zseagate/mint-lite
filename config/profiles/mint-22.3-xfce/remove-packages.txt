@@ -1,0 +1,56 @@
+# 默认删除的包（每行一个，# 开头为注释）
+# libreoffice 全套（36）
+libreoffice-base-core
+libreoffice-calc
+libreoffice-common
+libreoffice-core
+libreoffice-draw
+libreoffice-gnome
+libreoffice-gtk3
+libreoffice-help-common
+libreoffice-help-en-us
+libreoffice-impl
+libreoffice-impress
+libreoffice-l10n-en-gb
+libreoffice-math
+libreoffice-ogltrans
+libreoffice-pdfimport
+libreoffice-style-colibre
+libreoffice-style-elementary
+libreoffice-style-tango
+libreoffice-writer
+libreoffice-avmedia-backend-gstreamer
+libreoffice-base-drivers
+libreoffice-sdbc-hsqldb
+libreoffice-sdbc-postgresql
+libreoffice-writer2latex
+libreoffice-java-common
+libreoffice-report-builder-bin
+libreoffice-script-provider-bsh
+libreoffice-script-provider-js
+libreoffice-script-provider-python
+libreoffice-sdbc-firebird
+libreoffice-nlpsolver
+libreoffice-help-en-gb
+libreoffice-l10n-en-za
+libreoffice-qt5
+libreoffice-qt6
+# thunderbird（9）
+thunderbird
+thunderbird-gnome-support
+thunderbird-locale-en
+thunderbird-locale-en-gb
+thunderbird-locale-en-us
+thunderbird-locale-es
+thunderbird-locale-zh-cn
+thunderbird-locale-zh-tw
+xul-ext-lightning
+# 英文词典
+mythes-en-us
+hunspell-en-us
+hyphen-en-us
+# 其他
+transmission-gtk
+warpinator
+papirus-icon-theme
+yaru-theme-icon
