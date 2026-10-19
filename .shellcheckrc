@@ -1,0 +1,2 @@
+# 说明：. scripts/lib.sh 是相对当前工作目录的引用，SC1090/SC1091 不是问题
+disable=SC1090,SC1091

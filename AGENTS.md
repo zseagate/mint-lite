@@ -7,7 +7,7 @@
 ## 环境约束
 
 - 无 root：无 sudo、无 chroot、无 mount。`locale-gen` 不可用，`apt -o RootDir=` 不可用（会 unlink 整个 root 目录）。
-- 无系统级 `xorriso`：01/07 走 rootless shim——`work/xorriso-local/bin/xorriso`（4 行包装脚本：设 `LD_LIBRARY_PATH` 指向 `../root/usr/lib/x86_64-linux-gnu` 再 exec 真二进制），lib.sh 发现 PATH 无 xorriso 且 shim 存在时**自动挂上**（无需再手动 `PATH=` 前缀）。重建（`work/` 清了就没了）：`apt download xorriso libisoburn1t64`（noble 包名）+ 必要的 libisofs/libburn deb（本机 `/lib` 恰有 `libisofs.so.6`/`libburn.so.4`，缺则 `ldd` 按报错补下）→ 全部 `dpkg-deb -x *.deb work/xorriso-local/root/` → 手写包装脚本 `chmod +x`。无 `qemu`：自动验证跑不了，改 VirtualBox 手动测（步骤见 README「验证」）。只读检查 ISO 用 `isoinfo`/`7z l`（7z 甚至能看 El Torito 目录树）；shellcheck 静态二进制放 `/tmp/opencode/shellcheck`（GitHub release 下载，tmp 重启即清——没了就重新下；CI 用同款默认规则，本地过了 CI 才绿）。
+- 无系统级 `xorriso`：01/07 走 rootless shim——`work/xorriso-local/bin/xorriso`（4 行包装脚本：设 `LD_LIBRARY_PATH` 指向 `../root/usr/lib/x86_64-linux-gnu` 再 exec 真二进制），lib.sh 发现 PATH 无 xorriso 且 shim 存在时**自动挂上**（无需再手动 `PATH=` 前缀）。重建（`work/` 清了就没了）：`apt download xorriso libisoburn1t64`（noble 包名）+ 必要的 libisofs/libburn deb（本机 `/lib` 恰有 `libisofs.so.6`/`libburn.so.4`，缺则 `ldd` 按报错补下）→ 全部 `dpkg-deb -x *.deb work/xorriso-local/root/` → 手写包装脚本 `chmod +x`。无 `qemu`：自动验证跑不了，改 VirtualBox 手动测（步骤见 README「验证」）。只读检查 ISO 用 `isoinfo`/`7z l`（7z 甚至能看 El Torito 目录树）；shellcheck 静态二进制放 `/tmp/opencode/shellcheck`（GitHub release 下载，tmp 重启即清——没了就重新下；CI 用同款默认规则，SC1090/SC1091（`. scripts/lib.sh` 相对引用）由仓库根 `.shellcheckrc` 关闭，本地过了 CI 才绿）。
 - 构建约需：解包后 `work/root` ~5.6GB 磁盘空间；`mksquashfs` xz 约 6 分钟。
 - 临时文件放 `/tmp/opencode`；`work/` 路径一律用相对路径（不要写死 `/home/<user>/...`）。
 

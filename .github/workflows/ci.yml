@@ -11,4 +11,6 @@ jobs:
         uses: ludeeus/action-shellcheck@master
         with:
           scandir: scripts/
-          ignore: SC1090 SC1091   # . scripts/lib.sh 的相对引用，本地全量 glob 检查同样干净
+          # 注意：本 action 的 ignore 输入是“按路径排除”，不是忽略 SC 代码；SC1090/SC1091
+          # （. scripts/lib.sh 的相对引用）由仓库根的 .shellcheckrc 关闭，这样本地
+          # `shellcheck scripts/*.sh` 与 CI 用的是同一套规则。
